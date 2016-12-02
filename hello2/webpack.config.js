@@ -20,11 +20,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin()
-  ],
   resolve: {
+    root: [
+        path.resolve('../node_modules'),
+        path.join(__dirname, "..", "node_modules"),
+        path.join(__dirname, "src", "modules"),
+    ],
     extensions: ['', '.js', '.jsx'],
   }
 };
