@@ -1,6 +1,6 @@
 # Description
 
-In this guide, I try to create 2 same-level and render them at 2 different DOM node
+In this guide, I try to create 2 same-level components and render them at 2 different DOM node
 
 
 # Create Github project named "react-guide"
