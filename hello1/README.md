@@ -108,7 +108,7 @@ module.exports = {
 
 # Create a new directory to host source code
 
-``
+```
 mkdir hello1
 cd hello1
 ```
