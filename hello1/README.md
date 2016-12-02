@@ -1,5 +1,6 @@
 # Create Github project named "react-guide"
 
+```
 mkdir react-guide
 cd react-guide
 echo "# React Guide" >> README.md
@@ -8,10 +9,12 @@ git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/pcdinh/react-guide.git
 git push -u origin master
+```
 
 
 # Download local libraries for this project
 
+```
 npm init -y
 npm install --save react@15.4.0 react-dom@15.4.0
 npm install --save-dev webpack
@@ -25,9 +28,11 @@ npm install --save-dev babel-preset-react
 
 npm install --save-dev react-hot-loader
 npm install --save-dev style-loader
+```
 
 # A new package.json will be created with the following content inside
 
+```
 {
   "name": "reactjs3",
   "version": "1.0.0",
@@ -55,9 +60,11 @@ npm install --save-dev style-loader
     "webpack": "^1.13.3"
   }
 }
+```
 
 # Create a new webpack.config.js
 
+```
 var path = require('path');
 var webpack = require('webpack');
 
@@ -96,17 +103,21 @@ module.exports = {
   },
 };
 
+```
+
 
 # Create a new directory to host source code
 
+``
 mkdir hello1
 cd hello1
+```
 
 # Create source code file
 
 hello.jsx: Our first component
 
-
+```
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -117,6 +128,7 @@ class Hello extends React.Component {
 }
 
 ReactDOM.render(<Hello/>, document.getElementById('hello'));
+```
 
 
 # Create source code file
@@ -124,6 +136,7 @@ ReactDOM.render(<Hello/>, document.getElementById('hello'));
 world.jsx: Our second component
 
 
+```
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -134,13 +147,14 @@ class World extends React.Component {
 }
 
 ReactDOM.render(<World/>, document.getElementById('world'));
+```
 
 
 # Create source code file
 
 index.html: Web server will load it
 
-
+```
 <!doctype html>
 <html>
   <head>
@@ -153,6 +167,7 @@ index.html: Web server will load it
 <script src="./bundle.js"></script>
   </body>
 </html>
+```
 
 
 # Create source code file
@@ -160,23 +175,33 @@ index.html: Web server will load it
 main.js: Used for Webpack to transform source code in ES6 to ES5
 
 
+```
 import Hello from './hello.jsx';
 import World from './world.jsx';
+```
 
 # Transform ES6 code into ES5
 
+```
 webpack
+```
 
 or
 
+```
 webpack --watch
+```
 
 ## Use -p key (shortcut for --optimize-minimize):
 
+```
 webpack -p --watch
+```
 
 
 # Run the app
 
+```
 http://localhost:8083/hello1
+```
 
