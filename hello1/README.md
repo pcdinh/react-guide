@@ -56,7 +56,7 @@ cd hello1
 
 # Create source code file
 
-hello.jsx: Our first component
+`hello.jsx`: Our first component
 
 ```
 import React from 'react';
@@ -74,7 +74,7 @@ ReactDOM.render(<Hello/>, document.getElementById('hello'));
 
 # Create source code file
 
-world.jsx: Our second component
+`world.jsx`: Our second component
 
 
 ```
@@ -93,7 +93,7 @@ ReactDOM.render(<World/>, document.getElementById('world'));
 
 # Create source code file
 
-index.html: Web server will load it
+`index.html`: Web server will load it
 
 ```
 <!doctype html>
@@ -113,7 +113,7 @@ index.html: Web server will load it
 
 # Create source code file
 
-main.js: Used for Webpack to transform source code in ES6 to ES5
+`main.js`: Used for Webpack to transform source code in ES6 to ES5
 
 
 ```
@@ -123,20 +123,22 @@ import World from './world.jsx';
 
 # Transform ES6 code into ES5
 
+Assuming that you are in `./hello1`
+
 ```
-webpack
+../node_modules/.bin/webpack
 ```
 
 or
 
 ```
-webpack --watch
+../node_modules/.bin/webpack --watch
 ```
 
 ## Use -p key (shortcut for --optimize-minimize):
 
 ```
-webpack -p --watch
+../node_modules/.bin/webpack -p --watch
 ```
 
 

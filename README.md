@@ -26,10 +26,11 @@ git push -u origin master
 npm init -y
 npm install --save react@15.4.0 react-dom@15.4.0
 npm install --save-dev webpack
-npm install webpack-dev-server
+npm install --save-dev webpack-dev-server
 
 npm install --save-dev babel-core
 npm install --save-dev babel-loader
+npm install --save-dev babel-plugin-uglify
 
 npm install --save-dev babel-preset-es2015
 npm install --save-dev babel-preset-react

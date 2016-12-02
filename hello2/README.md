@@ -55,6 +55,8 @@ module.exports = {
 
 # Packaging modules using Webpack
 
+Assuming that you are in `./hello2`
+
 ```
-webpack -p --watch --display-error-details --optimize-dedupe
+../node_modules/.bin/webpack -p --watch -p --watch --display-error-details --optimize-dedupe
 ```
