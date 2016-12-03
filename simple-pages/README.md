@@ -1,7 +1,6 @@
 # Description
 
-We try to create 2 components. The component named `HelloWorld` will be rendered inside
-the main one `App`.
+We try to create a simple Single Page Application with several "pages".
 
 # Application structure
 
@@ -9,12 +8,23 @@ the main one `App`.
 webpack.config.js
 index.html
 src/
+    components/
+
+               home.js
+               contact.js
     app.js
-    helloworld.jsx
+    main.js
 static/
        img/
        css/
        js/
+```
+
+# Install react-router
+
+```
+cd react-guide
+npm install --save-dev react-router
 ```
 
 # Webpack's webpack.config.js
@@ -39,7 +49,8 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
-          ]
+      }
+    ]
   },
   resolve: {
     root: [
@@ -51,11 +62,36 @@ module.exports = {
   }
 };
 ```
-}
+
+# Notes:
+
+`Adjacent JSX elements must be wrapped in an enclosing tag` reminds that
+content of a React component or element must be wrapped in a <container>. So:
+
+`Wrong`
+
+```
+return (
+  <h1>Something</h1>p>
+  <p>More</p>p>
+)
+```
+
+`Right`
+
+```
+return (
+  <div>
+    <h1>Something</h1>p>
+    <p>More</p>p>
+  </div>
+)
+
+```
 
 # Packaging modules using Webpack
 
-Assuming that you are in `./hello2`
+Assuming that you are in `./simple-pages`
 
 ```
 ../node_modules/.bin/webpack -p --watch -p --watch --display-error-details --optimize-dedupe
