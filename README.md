@@ -4,7 +4,8 @@ For React beginners
 
 # Technology stacks
 
-ReactJS 15.4, ES6, Webpack 1, Babel 6
+`ReactJS 15.4`, `ES6`, `Webpack 1.13`, `Babel 6.18`
+`NodeJS 7.2`
 
 # Create Github project named "react-guide"
 

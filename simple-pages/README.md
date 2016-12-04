@@ -22,53 +22,21 @@ static/
 
 # Install react-router
 
+We use `react-router 3.0`
+
 ```
 cd react-guide
 npm install --save-dev react-router
 ```
 
-# Webpack's webpack.config.js
-
-```
-var path = require('path');
-var webpack = require('webpack');
-
-module.exports = {
-  context: `${__dirname}/src`,
-  entry: `${__dirname}/src/app.js`,
-  output: {
-    path: __dirname,
-    filename: 'static/js/bundle.js'
-  },
-  module: {
-    loaders: [
-      {
-        test: /.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react']
-        }
-      }
-    ]
-  },
-  resolve: {
-    root: [
-        path.resolve('../node_modules'),
-        path.join(__dirname, "..", "node_modules"),
-        path.join(__dirname, "src", "modules"),
-    ],
-    extensions: ['', '.js', '.jsx'],
-  }
-};
-```
-
 # Notes:
+
+### HTML tags
 
 `Adjacent JSX elements must be wrapped in an enclosing tag` reminds that
 content of a React component or element must be wrapped in a <container>. So:
 
-`Wrong`
+Wrong
 
 ```
 return (
@@ -77,7 +45,7 @@ return (
 )
 ```
 
-`Right`
+Right
 
 ```
 return (
@@ -87,6 +55,46 @@ return (
   </div>
 )
 
+```
+
+### URL in <a> tags
+
+Supposed that I have the following routes:
+
+```
+      <Router history={hashHistory}>
+        <Route path='/' component={Home} />
+        <Route path='/contact' component={Contact} />
+        <Route path='*' component={NotFound} />
+      </Router>
+```
+
+which specifies:
+
+  - `/` points to `Home` component
+  - `/contact` points to `Contact` component
+
+There are 2 ways to specify a URL that allows user to click on to switch back and
+forth between components:
+
++ Hard-coded
+
+```
+<p>Click <a href="./#/contact">here</a> to contact us</p>
+```
+
+which allows user to switch to `Contact` component via route `contact`.
+
++ react-router way
+
+Use <Link> component:
+
+`<Link to="{path}">here</Link>` which yields `<a href="#{path}">here</a>`
+
+E.x:
+
+```
+<p>Click <Link to="/home">here</Link> to be back to Home page</p>
 ```
 
 # Packaging modules using Webpack
