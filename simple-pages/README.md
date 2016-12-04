@@ -98,13 +98,35 @@ E.x:
 <p>Click <Link to="/home">here</Link> to be back to Home page</p>
 ```
 
-### Dynamic route or route with parameters
+### Parameterized route
 
 ```
 
       <Router history={hashHistory}>
         <Route path='/profile/:username' component={Profile} />
       </Router>
+
+```
+
+The the value of the parameter can be accessed using `{this.props.params.username}`
+
+E.x:
+
+```
+export class Profile extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>This page is for {this.props.params.username}</h2>
+      </div>
+    )
+  }
+}
 
 ```
 
