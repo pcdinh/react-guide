@@ -13,6 +13,7 @@ src/
                home.js
                contact.js
                profile.js
+               search.js
     app.js
     main.js
 static/
@@ -129,6 +130,54 @@ export class Profile extends Component {
 }
 
 ```
+
+### URL with query string
+
+Image that you define a router `search` that takes some query strings
+
+```
+      <Router history={hashHistory}>
+        <Route path='/search' component={Search} />
+        <Route path='*' component={NotFound} />
+      </Router>
+```
+
+then in a component, a query string is populated
+
+```
+export class Home extends Component {
+
+  render() {
+    return (
+      <div>
+        <p>Click <a href="./#/search?q=bitcoin">here</a> to search for bitcoin</p>
+      </div>
+    )
+  }
+}
+```
+
+You can access the query string in target component as follows:
+
+```
+import React, { Component } from 'react'
+
+export class Search extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Your are searching for <strong>{this.props.location.query.q}</strong></p>
+      </div>
+    )
+  }
+}
+```
+
 
 # Packaging modules using Webpack
 

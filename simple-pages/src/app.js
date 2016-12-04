@@ -3,6 +3,7 @@ import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 're
 import { Home } from './components/home.js'
 import Contact from './components/contact.js'
 import { Profile } from './components/profile.js'
+import { Search } from './components/search.js'
 
 export default class App extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class App extends Component {
         <Route path='/' component={Home} />
         <Route path='/contact' component={Contact} />
         <Route path='/profile/:username' component={Profile} />
+        <Route path='/search' component={Search} />
         <Route path='*' component={NotFound} />
       </Router>
     );
