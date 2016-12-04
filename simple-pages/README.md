@@ -12,6 +12,7 @@ src/
 
                home.js
                contact.js
+               profile.js
     app.js
     main.js
 static/
@@ -95,6 +96,16 @@ E.x:
 
 ```
 <p>Click <Link to="/home">here</Link> to be back to Home page</p>
+```
+
+### Dynamic route or route with parameters
+
+```
+
+      <Router history={hashHistory}>
+        <Route path='/profile/:username' component={Profile} />
+      </Router>
+
 ```
 
 # Packaging modules using Webpack
