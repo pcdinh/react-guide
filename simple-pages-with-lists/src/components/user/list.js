@@ -8,14 +8,15 @@ class UserListView extends Component {
   }
 
   render() {
-    var listItems = this.props.names.map(function(user) {
-      return <li key={user}> {user} </li>;
+    var fullNames = this.props.names.map(function(name) {
+      return <li key={name}> {name} </li>;
     });
     return (
       <div>
-        <h3> Users </h3>
+        <h3>Full names</h3>
+        <p>{this.props.description}</p>
         <ul>
-          {listItems}
+          {fullNames}
         </ul>
       </div>
     )
