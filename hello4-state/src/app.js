@@ -9,7 +9,8 @@ class Posts extends Component {
         super(props)
         this.state = {
             message: "No data",
-            posts: []
+            posts: [],
+            status: 1
         }
     }
 
@@ -18,24 +19,53 @@ class Posts extends Component {
     }
 
     async getData() {
-        const rawData = await fetch('https://www.reddit.com/r/lisk.json');
-        const data = await rawData.json();
-        this.setState({
-            message: "",
-            posts: data.data.children
-        });
+        try {
+            const resp = await fetch('https://www.reddit.com/r/lisk.json');
+            if (resp.status == 200) {
+                const data = await resp.json();
+                this.setState({
+                    message: "",
+                    posts: data.data.children,
+                    status: 1
+                });
+            } else {
+                this.setState({
+                    message: resp.statusText,
+                    posts: [],
+                    status: 0
+                });
+            }
+        } catch (e) {
+            let message;
+            console.log(e.lineNumber)
+            if (e instanceof TypeError) {
+                message = "Unable to connect to host"
+            } else {
+                message = e.message
+            }
+            this.setState({
+                message: message,
+                posts: [],
+                status: 0
+            });
+        }
     }
 
     render() {
-        const posts = this.state.posts;
-        const host = 'https://www.reddit.com'
-        return (
-            <ul>
-              {posts.map(post =>
+        if (this.state.status == 1) {
+            const posts = this.state.posts;
+            const host = 'https://www.reddit.com'
+            return (
+                <ul>
+                  {posts.map(post =>
 
-                <li key={post.data.id}><a href={ host + post.data.permalink }>{post.data.title}</a> By [{post.data.author}]</li>
-              )}
-            </ul>
+                    <li key={post.data.id}><a href={ host + post.data.permalink }>{post.data.title}</a> By [{post.data.author}]</li>
+                  )}
+                </ul>
+            )
+        }
+        return (
+            <p>{this.state.message}</p>
         )
     }
 }
